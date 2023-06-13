@@ -158,6 +158,10 @@ const Home: React.FC<HomeProps> = ({ axios }) => {
 		if (e.key === "Enter") createItem()
 	}
 
+	function handleSubmit(event: FormEvent<HTMLFormElement>): void {
+		throw new Error('Function not implemented.');
+	}
+
 	return loading ? (
 		<div className="loading">
 			Loading...
@@ -171,13 +175,17 @@ const Home: React.FC<HomeProps> = ({ axios }) => {
 				</div>
 			</div>
 
+			<form className="form" onSubmit={handleSubmit}>
+			<p className="response">{Response}</p>
+			<div className="input-container ic1">
+        <input id="firstname" className="input" placeholder="     " type="text" value={newItemText} onChange={newItemTextChange} onKeyDown={addItemKeyHandle}/>
+        <div className="cut"></div>
+        <label htmlFor="firstname" className="placeholder">Add Item...</label>
+      </div>
+	  <button type="text" className="submit" onClick={createItem}>Add Item</button>
+	  <div id="tasks"></div>
 
-			<div className="add-item">
-				<input type="text" placeholder='Add Item...' value={newItemText} onChange={newItemTextChange} onKeyDown={addItemKeyHandle} />
-				<button onClick={createItem}>Add Item</button>
-			</div>
-
-			<div className="list">
+	  <div className="list">
 				<div className="list-header">
 					<h3>My Todo List</h3>
 					<div className="spacer"></div>
@@ -193,6 +201,10 @@ const Home: React.FC<HomeProps> = ({ axios }) => {
 					{todoItems}
 				</div>
 			</div>
+
+				</form>
+
+			
 		</div>
 	)
 }

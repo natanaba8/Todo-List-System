@@ -70,17 +70,24 @@ const Login: React.FC<LoginFormProps> = ({ axios }) => {
 	},[])
 
   return loading ? (
-		<div>
-			Loading...
-		</div>
+		<div id="loading-bar-spinner" className="spinner"><div className="spinner-icon"></div></div>
 	) : (
     <form className="form" onSubmit={handleSubmit}>
-			<h3>Login</h3>
+			<div className="title">Login</div>
+      <div className="subtitle">Let's login your account!</div>
 			<p className="response">{response}</p>
-			<input placeholder="Username" type="text" value={username} onChange={handleUsernameChange} />
-			<input placeholder="Password" type="password" value={password} onChange={handlePasswordChange} />
-      <button type="submit">Login</button>
-			<a href="/signup">Create an account</a>
+			<div className="input-container ic1">
+        <input id="firstname" className="input" placeholder="     " type="text" value={username} onChange={handleUsernameChange}/>
+        <div className="cut"></div>
+        <label htmlFor="firstname" className="placeholder">User Name</label>
+      </div>
+	  <div className="input-container ic1">
+        <input id="firstname" className="input" placeholder="     " type="password" value={password} onChange={handlePasswordChange}/>
+        <div className="cut"></div>
+        <label htmlFor="firstname" className="placeholder">Password</label>
+      </div>
+      <button type="text" className="submit">Login</button>
+			<a href="/signup" className="subtitle">Create an account</a>
     </form>
   );
 };
