@@ -162,16 +162,16 @@ const Home: React.FC<HomeProps> = ({ axios }) => {
 		throw new Error('Function not implemented.');
 	}
 
+	
 	return loading ? (
-		<div className="loading">
-			Loading...
-		</div>
+		<div id="loading-bar-spinner" className="spinner"><div className="spinner-icon"></div></div>
 	) : (
+		
 		<div className='home'>
 			<div className="header">
 				<div className="header-container">
 					<p className="fullname">{peronsalInfo.fullname}</p>
-					<button onClick={logoutAction}>Logout</button>
+					<button className='logout' onClick={logoutAction}>Logout</button>
 				</div>
 			</div>
 
@@ -188,14 +188,16 @@ const Home: React.FC<HomeProps> = ({ axios }) => {
 	  <div className="list">
 				<div className="list-header">
 					<h3>My Todo List</h3>
-					<div className="spacer"></div>
-					<p>Filter</p>
+					<div className="spacer"><p></p></div>
+					</div>
+
+					<div className='box'>
 					<select placeholder="Filter" onChange={updateFilter}>
 						<option value={DoneStatus.All}>All</option>
 						<option value={DoneStatus.Done}>Done</option>
 						<option value={DoneStatus.Pending}>Pending</option>
 					</select>
-				</div>
+					</div>
 
 				<div className="items">
 					{todoItems}

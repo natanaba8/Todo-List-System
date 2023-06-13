@@ -120,7 +120,7 @@
     box-sizing: border-box;
     height: 500px;
     padding: 20px;
-    width: 636px;
+    width: 100%;
 }
 
 .subtitle {
@@ -129,6 +129,97 @@
     font-size: 16px;
     font-weight: 600;
     margin-top: 10px;
+}
+
+.logout {
+    display: inline-block;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    font-weight: 600;
+    color: rgb(72, 76, 122);
+    font-size: 14px;
+    height: 38px;
+    padding: 8px 24px;
+    border-radius: 50px;
+    background-image: linear-gradient(180deg, #fff, #f5f5fa);
+    box-shadow: 0 4px 11px 0 rgb(37 44 97 / 15%), 0 1px 3px 0 rgb(93 100 148 / 20%);
+    transition: all .2s ease-out;
+     :hover {
+        box-shadow: 0 8px 22px 0 rgb(37 44 97 / 15%), 0 4px 6px 0 rgb(93 100 148 / 20%);
+    }
+}
+
+.box {
+    position: absolute;
+    top: 14%;
+    left: 76%;
+    transform: translate(-50%, -50%);
+}
+
+.box select {
+    background-color: #00bb1f;
+    color: white;
+    padding: 12px;
+    width: 130px;
+    border: none;
+    font-size: 18px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    -webkit-appearance: button;
+    appearance: button;
+    outline: none;
+}
+
+#filter {
+    right: 0em;
+}
+
+.box::before {
+    content: "\f13a";
+    font-family: FontAwesome;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 16%;
+    height: 100%;
+    text-align: center;
+    font-size: 28px;
+    line-height: 45px;
+    color: rgb(0 187 31);
+    background-color: rgb(37 44 97 / 15%);
+    pointer-events: none;
+}
+
+.box:hover::before {
+    color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.box select option {
+    padding: 30px;
+}
+
+#loading-bar-spinner.spinner {
+    left: 50%;
+    margin-left: -20px;
+    top: 50%;
+    margin-top: -20px;
+    position: absolute;
+    z-index: 19 !important;
+    animation: loading-bar-spinner 400ms linear infinite;
+}
+
+#loading-bar-spinner.spinner .spinner-icon {
+    width: 40px;
+    height: 40px;
+    border: solid 4px transparent;
+    border-top-color: #02c002 !important;
+    border-left-color: #02c002 !important;
+    border-radius: 50%;
+}
+
+.loading {
+    background: #fff url('https://media.giphy.com/media/gJ3mEToTDJn3LT6kCT/giphy.gif');
 }
 
 #loading-bar-spinner.spinner {
@@ -183,10 +274,10 @@
     position: sticky;
     top: 0;
     z-index: 1;
-    width: 145%;
+    width: 55%;
     border-radius: 15px;
     margin-top: -6em;
-    margin-left: -113px;
+    margin-left: 157px;
 }
 
 .header-container {
@@ -195,6 +286,7 @@
     flex-grow: 1;
     max-width: 500px;
     padding: 1rem 2rem;
+    text-transform: capitalize;
 }
 
 @media screen and (max-width: 768px) {
@@ -272,6 +364,7 @@
     position: relative;
     z-index: 0;
     margin: 23px 0px 0em 5em;
+    color: #fff;
 }
 
 @media screen and (max-width: 768px) {
@@ -310,28 +403,30 @@
     min-width: 330px;
     max-width: 500px;
     margin-left: -90px;
-    margin-top: 23px;
+    margin-top: 0em;
 }
 
-
-}
 @media screen and (max-width: 768px) {
     .list .items {
         min-width: 90vw;
         max-width: 90vw;
     }
 }
+
 .list-item {
     display: flex;
     position: relative;
     overflow-y: hidden;
 }
+
 .list-item .spacer {
     display: none;
 }
+
 .list-item:hover button.delete {
     bottom: 0;
 }
+
 .list-item button.delete {
     background-color: red;
     border: none;
@@ -342,16 +437,17 @@
     position: absolute;
     right: 10px;
     bottom: -50px;
+    width: 20%;
     text-transform: uppercase;
     transition: all 400ms ease;
     padding: .3rem .6rem;
 }
+
 @media screen and (max-width: 768px) {
     .list-item .spacer {
         display: block;
         flex-grow: 1;
     }
-    
     .list-item button.delete {
         font-size: .65rem;
         margin-left: 15px;
@@ -361,6 +457,7 @@
         bottom: 0;
     }
 }
+
 .list .list-item {
     display: flex;
     align-items: center;
@@ -368,18 +465,23 @@
     border-bottom: 1px solid #12121244;
     padding: 1rem;
 }
+
 .list .list-item p,
 .list .list-item input {
     cursor: pointer;
 }
+
 .list-item input {
     margin-right: 10px;
 }
+
 .list .list-item.done {
     border-left: 4px solid dodgerblue;
 }
+
 .list .list-item.done p,
 .list .list-item.done input {
     filter: opacity(.5);
 }
+
 @media screen and (max-width: 768px) {}
