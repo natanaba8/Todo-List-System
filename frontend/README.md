@@ -1,3 +1,0 @@
-# Frontend service
-
-- ReactJS
